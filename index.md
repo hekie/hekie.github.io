@@ -5,7 +5,7 @@ title: 首页
 # [Articles](/archives)
 
 {% for post in site.posts %}
-- <p>{{ post.date | date_to_string }} [{{ post.title }}]({{ post.url }})<small>{{ post.excerpt }}<small><p>
+- {{ post.date | date_to_string }} [{{ post.title }}]({{ post.url }})<p>{{ post.excerpt }}</p>
 {% endfor %}
 
 ___
