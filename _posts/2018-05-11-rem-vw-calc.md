@@ -1,6 +1,6 @@
 ---
 title: "rem+vw+calc"
-excerpt: '移动端基于vw和rem的根字号大小设置CSS代码'
+excerpt: 'rem 响应式布局方案'
 ---
 
 ### 移动端基于vw和rem的根字号大小设置CSS代码
