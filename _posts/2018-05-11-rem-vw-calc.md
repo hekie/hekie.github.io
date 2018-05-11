@@ -1,7 +1,15 @@
 ---
 title: "rem+vw+calc"
-description: '移动端基于vw和rem的根字号大小设置CSS代码'
+excerpt: '移动端基于vw和rem的根字号大小设置CSS代码'
 ---
+
+### 移动端基于vw和rem的根字号大小设置CSS代码
+
+计算公式：calc(基数 + 字体范围 * (当前屏幕大小 - 最小适应大小) / (最大适应 - 最小适应))
+
+说明：百分比字号和像素字号同时存在是为了兼容所有浏览器（貌似Safari对像素字号支持有些小问题，而IE对百分比字号支持有些问题）
+
+来源：[移动端基于vw和rem的根字号大小设置CSS代码](http://www.zhangxinxu.com/php/microCodeDetail.php?id=6)
 
 ```css
 html {
@@ -37,9 +45,3 @@ html {
     }
 }
 ```
-
-计算公式：calc(基数 + 字体范围 * (当前屏幕大小 - 最小适应大小) / (最大适应 - 最小适应))
-
-说明：百分比字号和像素字号同时存在是为了兼容所有浏览器（貌似Safari对像素字号支持有些小问题，而IE对百分比字号支持有些问题）
-
-来源：[移动端基于vw和rem的根字号大小设置CSS代码](http://www.zhangxinxu.com/php/microCodeDetail.php?id=6)
