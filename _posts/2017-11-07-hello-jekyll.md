@@ -1,5 +1,5 @@
 ---
-title: "Welcome to GitHub Pages"
+title: "Hello Jekyll"
 ---
 
 ## Welcome to GitHub Pages
