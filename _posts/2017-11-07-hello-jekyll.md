@@ -1,5 +1,6 @@
 ---
 title: "Hello Jekyll"
+excerpt: "Guide for GitHub Pages"
 ---
 
 ## Welcome to GitHub Pages
