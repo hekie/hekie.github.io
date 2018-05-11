@@ -2,7 +2,7 @@
 title: 首页
 ---
 
-# Articles
+### Articles
 <ul>
 {% for post in site.posts %}
 <li>
