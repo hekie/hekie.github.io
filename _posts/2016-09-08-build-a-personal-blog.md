@@ -1,20 +1,15 @@
 ---
 title: Build a Personal Blog
-date: 2016-09-08 15:51:01
-tags: hexo
-toc: true
+excerpt: 'To build a personal blog with [Github Pages](https://pages.github.com) and [Hexo](https://hexo.io).'
 ---
 
-To build a personal blog with [Github Pages](https://pages.github.com) and [Hexo](https://hexo.io).
 
-<!-- more -->
-
-## Node
+### Node
 
 Download & Install [`Node.js`](https://nodejs.org/en)
 
 
-## Git
+### Git
 
 - Download & Install [`Git`](https://git-scm.com/downloads/)
 - Configuration
@@ -35,7 +30,7 @@ ssh-keygen -t rsa -C "1250682474@qq.com"
 **Path:** https://github.com/settings/ssh
 
 
-## Hexo
+### Hexo
 
 - Install [`Hexo`](https://hexo.io/)
 
