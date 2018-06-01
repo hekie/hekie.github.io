@@ -1,6 +1,7 @@
 ---
 title: 'form-resetting-is-not-working'
 excerpt: '解决用 js 提交/重置表单时报错：submit/reset is not a function'
+tags: 'bug & fix'
 ---
 
 ### 解决用 js 提交/重置表单时报错：submit/reset is not a function
@@ -11,7 +12,7 @@ excerpt: '解决用 js 提交/重置表单时报错：submit/reset is not a func
 #### 1. 表单 html 结构
 
 ```html
-<form id="ajaxForm">  
+<form id="form">  
   <input type="text" name="username">
   <input type="password" name="password"> 
   <input type="submit" id="submit" name="submit" value="Submit">  
