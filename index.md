@@ -3,11 +3,11 @@ title: 首页
 ---
 
 <style>
-  .main-content p {
+  .article {
     position: relative;
     padding-left: 6em;
   }
-  .main-content time {
+  .article time {
     position: absolute;
     top: 3px;
     left: 0;
@@ -16,13 +16,12 @@ title: 首页
 </style>
 
 ### Articles
-
 {% for post in site.posts %}
-<p>
+<p class="article">
   <time>{{ post.date | date_to_string }}</time>
   <a href="{{ post.url }}">{{ post.title }}</a>
   <br>
   <small>{{ post.excerpt }}</small>
-  <hr>
-</p>
-{% endfor %}
+ </p>
+ <hr>
+ {% endfor %}
