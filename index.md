@@ -16,10 +16,13 @@ title: 首页
 </style>
 
 ### Articles
+
 {% for post in site.posts %}
+<p>
   <time>{{ post.date | date_to_string }}</time>
-  [{{ post.title }}]({{ post.url }})
+  <a href="{{ post.url }}">{{ post.title }}</a>
   <br>
   <small>{{ post.excerpt }}</small>
   <hr>
+</p>
 {% endfor %}
