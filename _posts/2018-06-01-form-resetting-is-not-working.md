@@ -1,5 +1,5 @@
 ---
-title: 'form-reset-and-submit-by-js'
+title: 'form-resetting-is-not-working'
 excerpt: '解决用 js 提交/重置表单时报错：submit/reset is not a function'
 ---
 
