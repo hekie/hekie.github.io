@@ -3,7 +3,9 @@ title: 'Node.js 搭建本地服务器'
 excerpt: '用 Node.js 快速搭建本地服务器，用于 Web 测试'
 ---
 
-参考链接：
+*更新：通过 address 自动获取当前机器的 ip 地址（需要安装 npm i address）*
+
+**参考链接：**
 - [廖雪峰 JavaScript 全栈教程](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345015296018cac40c198b543fead5c549865b9bd4a000)
 - [3 分钟快速搭建 nodejs 本地服务器运行测试 html/js](https://blog.csdn.net/u011456337/article/details/50704331)
 
@@ -12,6 +14,9 @@ const fs = require('fs')
 const url = require('url')
 const path = require('path')
 const http = require('http')
+// Get current machine IP, MAC and DNS servers.
+// https://github.com/node-modules/address
+const address = require('address')
 
 // MIME 类型
 const mime = {
@@ -40,7 +45,7 @@ const root = path.resolve(process.argv[2] || '.')
 console.log(`Static root dir: ${root}`)
 
 // 创建服务器
-const hostname = 'localhost'
+const hostname = address.ip()
 const port = 3000
 const server = http.createServer((req, res) => {
   // console.log(`${req.method}: ${req.url}`)
