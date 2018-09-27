@@ -4,6 +4,8 @@ excerpt: axios 封装：登录鉴权、统一报错处理、跳转、拦截
 tags: axios vue
 ---
 
+**http.js**
+
 ```javascript
 import axios from 'axios'
 // import qs from 'qs'
@@ -56,15 +58,15 @@ instance.interceptors.response.use(
 
     // 成功处理
     if (!res.data.err) return res.data.data
-
-    // 出错处理（例如：缺少参数等）
-    if (1 === Number(res.data.err)) {
-      alert(window._vm.$i18n.t(res.data.msg))
+    
+    // 错误处理 （例如：缺少参数等）
+    if ('ERR_CODE' === res.data.err) {
+      alert(res.data.msg)
       return Promise.reject()
     }
 
-    // 未登录
-    if (2 === Number(res.data.err)) {
+    // 未登录的情况
+    if ('NOT_SIGN_IN' === res.data.err) {
       store.commit('signOut')
       alert(`请重新登录`)
       goSignIn()
@@ -72,7 +74,7 @@ instance.interceptors.response.use(
   },
   // 用来在调用 axios 的时候通过 catch 获取接口返回的错误信息
   err => {
-    // 请求失败（404，500，超时等）
+    // 请求失败（例如：404、500）
     alert(err.message)
     return Promise.reject()
   }
@@ -81,9 +83,9 @@ instance.interceptors.response.use(
 // 跳转到登录页面
 // 带上 sendUrl 参数，登录成功后跳转到该页面
 function goSignIn() {
-  if ('login' !== router.currentRoute.name) {
+  if ('signin' !== router.currentRoute.name) {
     router.replace({
-      name: 'login',
+      name: 'signin',
       query: {
         sendUrl: router.currentRoute.fullPath
       }
@@ -97,4 +99,73 @@ export default {
     Object.defineProperty(Vue.prototype, '$http', { value: instance })
 }
 
+```
+
+**router.js**
+
+```javascript
+import Vue from 'vue'
+import Router from 'vue-router'
+import store from '@/store'
+
+Vue.use(Router)
+
+const routes = [
+  {
+    path: '/',
+    name: 'index',
+    component: () => import(/* webpackChunkName: 'index' */ '@/views/index.vue')
+  },
+  {
+    path: '/user',
+    name: 'user',
+    meta: { auth: true },
+    component: () => import(/* webpackChunkName: 'user' */ '@/views/user.vue')
+  },
+  {
+    path: '/signin',
+    name: 'signin',
+    component: () => import(/* webpackChunkName: 'signin' */ '@/views/signin.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () =>
+      import(/* webpackChunkName: 'register' */ '@/views/register.vue')
+  },
+  {
+    path: '/404',
+    alias: '*',
+    component: () => import(/* webpackChunkName: '404' */ '@/views/404.vue')
+  }
+]
+
+const router = new Router({
+  mode: process.env.VUE_APP_MODE, // 'history' or  'hash'
+  base: process.env.VUE_APP_BASE,
+  routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(r => r.meta && r.meta.auth)) {
+    // 需要登录之后才能进入的页面
+    if (!store.getters.isSignedIn) {
+      next({
+        name: 'signin',
+        query: {
+          sendUrl: to.fullPath
+        }
+      })
+      return
+    }
+  }
+  next()
+})
+
+// /* eslint-disable no-unused-vars */
+// router.afterEach((to, from) => {
+//   document.title = to.meta && to.meta.title
+// })
+
+export default router
 ```
