@@ -1,7 +1,7 @@
 ---
-title: vue + axios
+title: axios interceptors
 excerpt: axios 封装：登录鉴权、统一报错处理、跳转、拦截
-tags: vue axios
+tags: axios vue
 ---
 
 ```javascript
@@ -16,7 +16,7 @@ const instance = axios.create({
   // 生产环境 api 地址待定
   baseURL: process.env.VUE_APP_HOST + '/api',
   // 超时时间
-  timeout: process.env.VUE_PP_TIMEOUT,
+  timeout: process.env.VUE_APP_TIMEOUT,
   // 请求头信息，默认为 json 格式
   headers: {
     'Content-Type': 'application/json;charset=utf-8'
