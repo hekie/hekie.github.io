@@ -18,7 +18,7 @@ title: 首页
 ### Articles
 {% for post in site.posts %}
 <p class="article">
-  <time>{{ post.date | date: '%d %m %Y' }}</time>
+  <time>{{ post.date | date: '%Y-%m-%d' }}</time>
   <a href="{{ post.url }}">{{ post.title }}</a>
   <br>
   <small>{{ post.excerpt }}</small>
