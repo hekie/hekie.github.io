@@ -4,7 +4,7 @@ excerpt: 工作中遇到的一些小问题及解决方法
 tags: svn 
 ---
 
-## SVN 常用命令
+### SVN 常用命令
 
 ```bash
 # 更新代码到本地
@@ -17,7 +17,7 @@ svn co url [target]
 svn log [-l num]
 ```
 
-## Linux 相关
+### Linux 相关
 
 ```bash
 # 文件读写权限管理
@@ -31,9 +31,9 @@ ifconfig
 ```
 
 
-## Luci 学习
+### Luci 学习
 
-1. 要在 html 文件中嵌入 Lua 代码，请用 <%%> 包裹
+#### 要在 html 文件中嵌入 Lua 代码，请用 <%%> 包裹
 
 ```lua
 -- 注释（支持多行）
@@ -52,32 +52,31 @@ ifconfig
 <%+header%>
 ```
 
-2. 清除 Luci 缓存
+#### 清除 Luci 缓存
 
 ```bash
 rm -rf /tmp/luci-modulecache
 ```
 
-3. 禁用 Luci 缓存
+#### 禁用 Luci 缓存
+
 ```bash
 vi /etc/config/luci
 配置项 ccache 的 enable 属性改为 '0'
 reboot
 ```
 
-## uci 相关
+### 其它
 
+#### IE 下 placeholder 样式修改无效：把相关的样式定义分开写
 
-## 其它
-
-1. IE 下 placeholder 样式修改无效：把相关的样式定义分开写
 ```css
 ::-webkit-input-placeholder { color: #ccc; }
 ::-moz-placeholder { color: #ccc; }
 :-ms-input-placeholder { color: #ccc; }
 ```
 
-2. Chorme 自动填充背景色去除
+#### Chorme 自动填充背景色去除
 
 ```css
 input:-webkit-autofill {
@@ -85,9 +84,9 @@ input:-webkit-autofill {
 }
 ```
 
-3. Linux shell 主机名变成 -bash-4.1$，不显示只能广场的用户名和主机名
+#### Linux shell 主机名变成 -bash-4.1$，不显示只能广场的用户名和主机名
 
-对应用户根目录下缺失了配置文件
+原因：对应用户根目录下缺失了配置文件
 
 ```bash
 ＃ .bashrc
@@ -104,10 +103,3 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 ```
-
-
-
-
-
-
-
