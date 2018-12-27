@@ -63,7 +63,6 @@ rm -rf /tmp/luci-modulecache
 ```bash
 vi /etc/config/luci
 配置项 ccache 的 enable 属性改为 '0'
-reboot
 ```
 
 ### 其它
