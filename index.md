@@ -16,6 +16,10 @@ title: ❤
     vertical-align: top;
   }
   
+  @media screen and (max-width: 960px) { li { width: 33.33334% } }
+  @media screen and (max-width: 640px) { li { width: 50% } }
+  @media screen and (max-width: 320px) { li { width: 100% } }
+  
   small {
     display: block;
     font-size: .8em;
@@ -24,14 +28,6 @@ title: ❤
   time {
     font-size: .6em;
     opacity: .8;
-  }
-  
-  @media screen and (max-width: 320px) {
-    li { width: 100% }
-  }
-  
-  @media screen and (max-width: 640px) {
-    li { width: 50% }
   }
 </style>
 
