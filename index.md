@@ -1,27 +1,24 @@
 ---
-title: 首页
+title: ❤
 ---
 
 <style>
-  .article {
-    position: relative;
-    padding-left: 6em;
+  article {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
   }
-  .article time {
-    position: absolute;
-    top: 3px;
-    left: 0;
+  article time {
     font-size: .8em;
+    opacity: .8;
   }
 </style>
 
 ### Articles
 {% for post in site.posts %}
-<p class="article">
-  <time>{{ post.date | date: '%Y-%m-%d' }}</time>
-  <a href="{{ post.url }}">{{ post.title }}</a>
-  <br>
-  <small>{{ post.excerpt }}</small>
- </p>
- <hr>
- {% endfor %}
+<article>
+  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p>{{ post.excerpt }}</p>
+  <p><time>{{ post.date | date: '%Y-%m-%d' }}</time></p>
+</article>
+{% endfor %}
