@@ -7,33 +7,41 @@ title: ❤
     display: none;
   }
   
-  article {
+  ul { font-size: 0; }
+  
+  li {
     display: inline-block;
     width: 25%;
+    font-size: 1.25rem;
     vertical-align: top;
   }
   
-  article time {
+  small {
+    display: block;
     font-size: .8em;
+  }
+  
+  time {
+    font-size: .6em;
     opacity: .8;
   }
   
   @media screen and (max-width: 320px) {
-    article { width: 100% }
+    li { width: 100% }
   }
   
   @media screen and (max-width: 640px) {
-    article { width: 50% }
+    li { width: 50% }
   }
 </style>
 
-<header>
-  <h1>Hekie</h1>
-</header>
+# Hekie
+<ul>
 {% for post in site.posts %}
-<article>
-  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-  <p>{{ post.excerpt }}</p>
-  <p><time>{{ post.date | date: '%Y-%m-%d' }}</time></p>
-</article>
+<li>
+  <a href="{{ post.url }}">{{ post.title }}</a>
+  <small>{{ post.excerpt }}</small>
+  <time>{{ post.date | date: '%Y-%m-%d' }}</time>
+</li>
 {% endfor %}
+</ul>
